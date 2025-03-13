@@ -32,10 +32,10 @@
                             <nav class="-mx-3 flex flex-1 justify-end">
                                 @auth
                                     <a
-                                        href="{{ url('/dashboard') }}"
+                                        href="{{ url('/profile') }}"
                                         class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
                                     >
-                                        Dashboard
+                                        Profile
                                     </a>
                                 @else
                                     <a
@@ -55,12 +55,6 @@
                                     @endif
                                 @endauth
                             </nav>
-                        @endif
-                        @if ($user)
-                            <p>Hello, {{ $user->name }}!</p>
-                            <a href="{{ route('user.show', ['id' => $user->id]) }}">user profile</a>
-                        @else
-                            <p>login</p>
                         @endif
                     </header>
 

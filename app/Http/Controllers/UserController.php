@@ -102,14 +102,4 @@ class UserController extends Controller
 
         return response()->json(null, 204);
     }
-
-    /**
-     * Display the page user resource.
-     */
-    public function showUserPage(int $id)
-    {
-        $user = User::findOrFail($id);
-
-        return view('user.user', compact('user'));
-    }
 }
