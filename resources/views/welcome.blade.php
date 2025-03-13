@@ -56,6 +56,12 @@
                                 @endauth
                             </nav>
                         @endif
+                        @if ($user)
+                            <p>Hello, {{ $user->name }}!</p>
+                            <a href="{{ route('user.show', ['id' => $user->id]) }}">user profile</a>
+                        @else
+                            <p>login</p>
+                        @endif
                     </header>
 
                     <main class="mt-6">
