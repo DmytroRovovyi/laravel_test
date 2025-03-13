@@ -51,7 +51,7 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(int $id)
     {
         $user = User::findOrFail($id);
         return response()->json($user);
@@ -60,7 +60,7 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(int $id)
     {
         //
     }
@@ -68,7 +68,7 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, int $id)
     {
         $user = User::findOrFail($id);
 
@@ -95,11 +95,21 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(int $id)
     {
         $user = User::findOrFail($id);
         $user->delete();
 
         return response()->json(null, 204);
+    }
+
+    /**
+     * Display the page user resource.
+     */
+    public function showUserPage(int $id)
+    {
+        $user = User::findOrFail($id);
+
+        return view('user.user', compact('user'));
     }
 }
