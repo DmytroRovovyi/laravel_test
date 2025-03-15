@@ -11,7 +11,7 @@
                 <h1 class="text-3xl font-bold text-gray-800 dark:text-gray-200">{{ $article->title }}</h1>
                 @if($article->image)
                     <div class="my-4">
-                        <img src="{{ asset('storage/' . $article->image) }}" alt="{{ $article->title }}" class="w-full h-auto rounded-lg shadow-md">
+                        <img src="{{ asset('storage/' . $article->image) }}" alt="{{ $article->title }}" class="w-64 h-auto rounded-lg shadow-md">
                     </div>
                 @endif
                 <p class="mt-4 text-gray-600 dark:text-gray-400">{{ $article->body }}</p>

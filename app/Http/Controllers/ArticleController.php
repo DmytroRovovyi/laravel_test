@@ -5,17 +5,14 @@ namespace App\Http\Controllers;
 use App\Models\Article;
 use Illuminate\Http\Request;
 
-class ArticleController extends Controller
-{
+class ArticleController extends Controller {
     // Метод для відображення форми створення статті
-    public function create()
-    {
+    public function create() {
         return view('articles.create');
     }
 
     // Метод для збереження нової статті
-    public function store(Request $request)
-    {
+    public function store(Request $request) {
         $validatedData = $request->validate([
             'title' => 'required|string|max:255',
             'body' => 'required|string',
@@ -35,20 +32,17 @@ class ArticleController extends Controller
     }
 
     // Метод для відображення списку статей
-    public function index()
-    {
+    public function index() {
         $articles = Article::all();
         return view('articles.index', compact('articles'));
     }
 
     // Метод для перегляду окремої статті
-    public function show(Article $article)
-    {
+    public function show(Article $article) {
         return view('articles.show', compact('article'));
     }
 
-    public function update(Request $request, $id)
-    {
+    public function update(Request $request, $id) {
         // Валідуємо дані
         $validatedData = $request->validate([
             'title' => 'required|string|max:255',
@@ -70,12 +64,9 @@ class ArticleController extends Controller
         return redirect()->route('articles.index')->with('success', 'Article updated successfully.');
     }
 
-    public function edit(int $id)
-    {
-        // Знайдемо статтю за її ID
+    public function edit(int $id) {
         $article = Article::findOrFail($id);
 
-        // Повернемо вигляд форми редагування, передаючи статтю
         return view('articles.edit', compact('article'));
     }
 

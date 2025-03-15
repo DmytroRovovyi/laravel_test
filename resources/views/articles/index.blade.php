@@ -12,7 +12,7 @@
                     <h2 class="text-2xl font-bold text-gray-800 dark:text-gray-200">{{ $article->title }}</h2>
                     @if($article->image)
                         <div class="my-4">
-                            <img src="{{ asset('storage/' . $article->image) }}" alt="{{ $article->title }}" class="w-full h-auto rounded-lg">
+                            <img src="{{ asset('storage/' . $article->image) }}" alt="{{ $article->title }}" class="w-64 h-auto rounded-lg">
                         </div>
                     @endif
                     <p class="mt-2 text-gray-600 dark:text-gray-400">{{ Str::limit($article->body, 150) }}</p>
