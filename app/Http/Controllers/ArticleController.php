@@ -69,4 +69,14 @@ class ArticleController extends Controller
 
         return redirect()->route('articles.index')->with('success', 'Article updated successfully.');
     }
+
+    public function edit(int $id)
+    {
+        // Знайдемо статтю за її ID
+        $article = Article::findOrFail($id);
+
+        // Повернемо вигляд форми редагування, передаючи статтю
+        return view('articles.edit', compact('article'));
+    }
+
 }
